@@ -4,8 +4,26 @@
  */
 package rxpert;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -30,7 +48,10 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
+        sideBarPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         DashboardButton = new javax.swing.JButton();
         PatientManagementButton = new javax.swing.JButton();
@@ -38,82 +59,85 @@ public class Dashboard extends javax.swing.JFrame {
         PatientRecordsButton = new javax.swing.JButton();
         TaskButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.X_AXIS));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(250, 1050));
-        jPanel1.setMinimumSize(new java.awt.Dimension(250, 1024));
-        jPanel1.setPreferredSize(new java.awt.Dimension(250, 1024));
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+        sideBarPanel.setBackground(new java.awt.Color(0, 204, 204));
+        sideBarPanel.setForeground(new java.awt.Color(255, 255, 255));
+        sideBarPanel.setMaximumSize(new java.awt.Dimension(250, 1050));
+        sideBarPanel.setMinimumSize(new java.awt.Dimension(250, 1024));
+        sideBarPanel.setPreferredSize(new java.awt.Dimension(250, 1024));
+        sideBarPanel.setLayout(new javax.swing.BoxLayout(sideBarPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Rounded", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("    RXpert");
+        jLabel1.setText("   RXpert");
         jLabel1.setMaximumSize(new java.awt.Dimension(250, 150));
         jLabel1.setMinimumSize(new java.awt.Dimension(250, 150));
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 150));
-        jPanel1.add(jLabel1);
+        sideBarPanel.add(jLabel1);
 
-        DashboardButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        DashboardButton.setBackground(new java.awt.Color(0, 204, 204));
+        DashboardButton.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        DashboardButton.setForeground(new java.awt.Color(255, 255, 255));
         DashboardButton.setText("Dashboard");
-        DashboardButton.setBorder(null);
+        DashboardButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
+        DashboardButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         DashboardButton.setMaximumSize(new java.awt.Dimension(250, 50));
-        jPanel1.add(DashboardButton);
+        sideBarPanel.add(DashboardButton);
 
-        PatientManagementButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PatientManagementButton.setBackground(new java.awt.Color(0, 204, 204));
+        PatientManagementButton.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        PatientManagementButton.setForeground(new java.awt.Color(255, 255, 255));
         PatientManagementButton.setText("Patient Management");
-        PatientManagementButton.setBorder(null);
+        PatientManagementButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
+        PatientManagementButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         PatientManagementButton.setMaximumSize(new java.awt.Dimension(250, 50));
-        jPanel1.add(PatientManagementButton);
+        sideBarPanel.add(PatientManagementButton);
 
-        AppointmentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AppointmentButton.setBackground(new java.awt.Color(0, 204, 204));
+        AppointmentButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        AppointmentButton.setForeground(new java.awt.Color(255, 255, 255));
         AppointmentButton.setText("Appointment Scheduling");
-        AppointmentButton.setBorder(null);
+        AppointmentButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
+        AppointmentButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         AppointmentButton.setMaximumSize(new java.awt.Dimension(250, 50));
-        jPanel1.add(AppointmentButton);
+        sideBarPanel.add(AppointmentButton);
 
-        PatientRecordsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PatientRecordsButton.setBackground(new java.awt.Color(0, 204, 204));
+        PatientRecordsButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PatientRecordsButton.setForeground(new java.awt.Color(255, 255, 255));
         PatientRecordsButton.setText("Patient Records");
-        PatientRecordsButton.setBorder(null);
+        PatientRecordsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
+        PatientRecordsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         PatientRecordsButton.setMaximumSize(new java.awt.Dimension(250, 50));
-        jPanel1.add(PatientRecordsButton);
+        sideBarPanel.add(PatientRecordsButton);
 
-        TaskButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TaskButton.setBackground(new java.awt.Color(0, 204, 204));
+        TaskButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        TaskButton.setForeground(new java.awt.Color(255, 255, 255));
         TaskButton.setText("Task Management");
-        TaskButton.setBorder(null);
+        TaskButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
+        TaskButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TaskButton.setMaximumSize(new java.awt.Dimension(250, 50));
-        jPanel1.add(TaskButton);
+        sideBarPanel.add(TaskButton);
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(sideBarPanel);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMinimumSize(new java.awt.Dimension(0, 50));
         jPanel2.setPreferredSize(new java.awt.Dimension(1328, 50));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel3.setMinimumSize(new java.awt.Dimension(1190, 50));
-        jPanel3.setPreferredSize(new java.awt.Dimension(1190, 50));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 51, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel3);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(252, 255, 246));
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(50, 50, 50, 50));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -124,7 +148,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 897, Short.MAX_VALUE)
+            .addGap(0, 924, Short.MAX_VALUE)
         );
 
         jPanel2.add(jPanel4);
@@ -163,6 +187,10 @@ public class Dashboard extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -172,35 +200,33 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }
     
-    private void customInit() {
-        
-        AppointmentButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                AppointmentButton(e);
-            }
-            
-        });
-        
-        PatientRecordsButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                PatientRecordsButton(e);
-            }
-        });
-        
-        PatientManagementButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                PatientManagementButton(e);
-            }
-        });
-        
-    }
+   private void customInit() {
+       
+    jLabel1.setBackground(Color.white);
     
-    private void PatientManagementButton(java.awt.event.ActionEvent evt) {
-        Patient_Management a = new Patient_Management();
-        a.setVisible(true);
-        setVisible(false);
-    }
+    
+        
+    // Button listeners
+    PatientManagementButton.addActionListener(e -> PatientManagementButton(e));
+    AppointmentButton.addActionListener(e -> AppointmentButton(e));
+    PatientRecordsButton.addActionListener(e -> PatientRecordsButton(e));
+    
+    // Apply gradients without replacing panels
+    applyGradient(sideBarPanel, new Color(0x26C6DA), new Color(0x92FFCD), false); // Vertical
+    
+    setButtonBG(
+        DashboardButton,
+        AppointmentButton,
+        PatientRecordsButton,
+        PatientManagementButton,
+        TaskButton
+    );
+
+
+    revalidate();
+    repaint();
+}
+
     
     private void AppointmentButton(java.awt.event.ActionEvent evt) {
         Appointment_Scheduling a = new Appointment_Scheduling();
@@ -213,6 +239,44 @@ public class Dashboard extends javax.swing.JFrame {
         a.setVisible(true);
         setVisible(false);
     }
+    
+    private void PatientManagementButton(java.awt.event.ActionEvent evt) {
+        Patient_Management a = new Patient_Management();
+        a.setVisible(true);
+        setVisible(false);
+    }
+    
+    public void setButtonBG(JButton... buttons) {
+        for (JButton button: buttons) {
+            button.setOpaque(false);
+            button.setContentAreaFilled(false);
+            button.setBorderPainted(false);
+            button.setForeground(Color.WHITE);
+        }
+    }
+    
+    private void applyGradient(JPanel panel, Color startColor, Color endColor, boolean isHorizontal) {
+    panel.setOpaque(false);
+    panel.setUI(new javax.swing.plaf.PanelUI() {
+        @Override
+        public void update(Graphics g, JComponent c) {
+            Graphics2D g2d = (Graphics2D) g;
+            int width = c.getWidth();
+            int height = c.getHeight();
+
+            GradientPaint gp = isHorizontal
+                ? new GradientPaint(0, 0, startColor, width, 0, endColor)
+                : new GradientPaint(0, 0, startColor, 0, height, endColor);
+
+            g2d.setPaint(gp);
+            g2d.fillRect(0, 0, width, height);
+
+            super.update(g, c); // Draw children/components
+        }
+    });
+}
+
+
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton AppointmentButton;
@@ -221,9 +285,11 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton PatientRecordsButton;
     private javax.swing.JButton TaskButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.MenuBar menuBar1;
+    private javax.swing.JPanel sideBarPanel;
     // End of variables declaration                   
 }
